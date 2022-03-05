@@ -1,0 +1,10 @@
+name: Update Pages
+
+on:
+  workflow_call:
+
+jobs:
+  update-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "updating pages on  ${{ github.ref_name }}"

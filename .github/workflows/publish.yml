@@ -1,0 +1,16 @@
+name: Publish
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "publishing ${{ github.event.release.name }} from ${{ github.ref_name }}"
+
+  publish-pages:
+    needs: publish
+    uses: ./.github/workflows/update-pages.yml
