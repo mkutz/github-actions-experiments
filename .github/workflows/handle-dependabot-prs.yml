@@ -17,6 +17,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Dump metadata
+        env:
+          METADATA_JSON: ${{ toJson(steps.metadata.outputs) }}
+        run: echo "$METADATA_JSON"
+
       - name: Apply update type label
         if: startsWith(steps.metadata.outputs.update-type, 'version-update:semver-')
         env:
