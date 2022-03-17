@@ -15,8 +15,6 @@ jobs:
         uses: dependabot/fetch-metadata@v1.3.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          alert-lookup: true
-          compat-lookup: true
 
       - name: Apply update type label
         if: startsWith(steps.metadata.outputs.update-type, 'version-update:semver-')
