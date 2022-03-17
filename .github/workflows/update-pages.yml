@@ -7,4 +7,8 @@ jobs:
   update-pages:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "updating pages on  ${{ github.ref_name }}"
+      - run: echo "updating pages on ${{ github.ref_name }}"
+      - run: echo "this is a release"
+        if: ${{ startsWith(github.ref_name, 'v') }}
+      - run: echo "this is a snapshot"
+        if: ${{ !startsWith(github.ref_name, 'v' }}
