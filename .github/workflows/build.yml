@@ -13,3 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "building ${{ github.ref_name }}"
+      - run: ./gradlew build
