@@ -6,10 +6,24 @@ on:
       - published
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          RELEASE_DATA: ${{ toJson(github.event.release) }}
+        run:
+          echo "${RELEASE_DATA}"
+
   publish:
     runs-on: ubuntu-latest
     steps:
       - run: echo "publishing ${{ github.event.release.name }} from ${{ github.ref_name }}"
+
+  announce:
+    runs-on: ubuntu-latest
+    if: "!github.event.release.isPrerelease"
+    steps:
+      - run: echo "This is a final release, which should be announced!"
 
   publish-pages:
     needs: publish
