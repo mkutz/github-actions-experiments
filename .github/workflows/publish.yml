@@ -20,8 +20,9 @@ jobs:
       - run: echo "publishing ${{ github.event.release.name }} from ${{ github.ref_name }}"
 
   announce:
+    needs: publish
     runs-on: ubuntu-latest
-    if: "!github.event.release.isPrerelease"
+    if: ${{ !github.event.release.prerelease }}
     steps:
       - run: echo "This is a final release, which should be announced!"
 
