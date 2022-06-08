@@ -11,4 +11,4 @@ jobs:
       - run: echo "this is a release"
         if: ${{ startsWith(github.ref_name, 'v') }}
       - run: echo "this is a snapshot"
-        if: ${{ !startsWith(github.ref_name, 'v' }}
+        if: ${{ !startsWith(github.ref_name, 'v') }}
