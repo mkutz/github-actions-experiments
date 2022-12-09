@@ -2,7 +2,7 @@ rootProject.name = "github-actions-experiments"
 include("lib")
 
 pluginManagement {
-    val kotlinVersion = "1.7.22"
+    val kotlinVersion: String by settings
     plugins {
         kotlin("jvm") version "${kotlinVersion}"
         kotlin("plugin.noarg") version "${kotlinVersion}"
