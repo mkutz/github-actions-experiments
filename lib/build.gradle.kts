@@ -13,7 +13,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 
-    testImplementation(platform("org.mockito:mockito-bom:5.22.0"))
+    testImplementation(platform("org.mockito:mockito-bom:5.23.0"))
     testImplementation("org.mockito:mockito-core")
 }
 
